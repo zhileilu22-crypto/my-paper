@@ -1,5 +1,18 @@
 # 技能与依赖审计
 
+## 当前云环境安装记录（2026-10-11）
+
+- 在 `.agents/skills/` 安装 Scientific Agent Skills 的 177 个技能，以及 ARS-Codex 的 `academic-research-suite` 根技能与完整资源，共 178 个入口。
+- 上游来源、精确提交和许可证见 `docs/skill-sources/installed.json`；使用方式见 `docs/SKILLS_USAGE.md`。
+- 178 个入口 YAML 解析、名称唯一性、目录名匹配、完整文件复制校验通过；ARS 六个工作流入口存在。
+- ARS 官方 `root-router` 和 `single-root-skill` 检查通过。
+- PDF 核心预检、sidecar 与 CLI 的 52 项测试全部通过；完整 PDF 测试共 80 项，78 项通过、2 项失败。失败涉及可选内容分类沙箱的进程回收：失败后检查发现两个子进程均为父进程 PID 1 下的僵尸进程，测试使用 `os.kill(pid, 0)` 将其判为仍存在。当前容器的回收行为与上游测试预期不符；未修改上游测试或源码，默认未启用内容分类功能。
+- Scientific Writing 的本地脚手架 CLI 可启动并显示参数；未生成论文正文，未执行所有科学工具的端到端验证。
+- 当前环境可导入 PyYAML 和 pypdf；其他科学软件、外部 API、Nature skills 未在本次安装中验证或安装。
+- 新会话中的技能注册状态仍需由实际技能清单确认，不将文件存在等同于注册成功。
+
+## 历史环境审计（以下不代表当前云环境）
+
 审计时间：2026-09-05（Asia/Shanghai）
 
 判定原则：只有出现在当前会话“Available skills”清单中的技能才记为“已识别、可调用”；仅凭目录或 `SKILL.md` 存在不判定为安装成功。
