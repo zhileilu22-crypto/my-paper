@@ -6,6 +6,7 @@
 
 - 考古纹样修复；决策记录：`project_meta/research_scope_20261011.md`。
 - 新课题文献、图像和实验数据：待收集或盘点。
+- 初步候选论文与检索记录：`project_meta/literature_search_20261011.md`。已核 DOI 与摘要；全文尚未筛选，不能当作已确认的文献综述。
 
 ## 已删除资料
 
