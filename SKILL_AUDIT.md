@@ -2,6 +2,14 @@
 
 ## 当前云环境安装记录（2026-10-11）
 
+### GPT-6 Solar 项目适配（2026-10-11）
+
+- 保留 177 个 Scientific Agent Skills 入口及全部配套文件；ARS 保留根技能、六个工作流及核心脚本。项目新会话建议 `gpt-6-sol` / `high`，但当前会话的实际模型取决于运行环境和用户选择。
+- ARS 模型路由、运行策略、团队说明和可选规划器清单已同步改用 Solar。`ars-lit-review`、`ars-citation-check`、`ars-reviewer` 和 `ars-plan` 的规划测试均找到全部必读文件，规划模型为 `gpt-6-sol`；复杂任务默认 `high`，常规规划为 `medium`。
+- ARS 路由、单根技能和 hook 安全三项静态检查通过；178 个技能入口的 YAML 元数据可解析且名称与目录匹配。未运行实际 Solar 模型质量基准，未验证此会话的实际模型。
+- 仅裁剪 ARS 上游历史评测的 `runs/raw/`（390 个文件）和 `runs/superseded/`（13 个文件），约 12.6 MB。论文和文献工作流不使用这些历史评测输出；以后运行上游完整评测需从固定提交恢复。
+- 上游 `all` 质量检查需完整插件仓库的 `.codex-plugin/plugin.json`，直接技能安装不含该文件；因此本次改用适合直接安装的专项检查，不将 `all` 检查记为通过。
+
 - 在 `.agents/skills/` 安装 Scientific Agent Skills 的 177 个技能，以及 ARS-Codex 的 `academic-research-suite` 根技能与完整资源，共 178 个入口。
 - 上游来源、精确提交和许可证见 `docs/skill-sources/installed.json`；使用方式见 `docs/SKILLS_USAGE.md`。
 - 178 个入口 YAML 解析、名称唯一性、目录名匹配、完整文件复制校验通过；ARS 六个工作流入口存在。

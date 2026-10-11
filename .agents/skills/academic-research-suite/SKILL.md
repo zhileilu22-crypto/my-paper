@@ -210,7 +210,7 @@ tell the user to use the plain alias form, for example `ars-plan my topic`.
 
 ## Model and Execution Policy
 
-Use GPT-6 Astra (`gpt-6-astra`) for new Codex research sessions and supported
+Target GPT-6 Solar (`gpt-6-sol`) for new Codex research sessions and supported
 explicit dispatches. Preserve an explicit user/runtime model choice. A skill
 cannot change an already-running session; report the actual model when known
 and never present a planned model as observed execution. Read

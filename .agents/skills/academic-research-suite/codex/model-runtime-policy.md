@@ -6,26 +6,25 @@ retirement decisions are recorded in [the September audit](audits/2026-09-06-mod
 
 ## Model selection
 
-- Primary target: `gpt-6-astra`. The repository's `.codex/config.toml` selects it
-  with `xhigh` for new, trusted project sessions. Installed plugins do not install
+- Primary target for this project: `gpt-6-sol`. The repository's `.codex/config.toml`
+  requests it with `high` for new project sessions where this config is loaded. Installed plugins do not install
   that project config. The active session and explicit user choices take priority;
   loading a skill never changes a running model.
 - The planner emits `model_plan` and a `launch_argv` for a new Codex invocation.
   `ARS_CODEX_MODEL` and `ARS_CODEX_REASONING_EFFORT` are explicit planner overrides.
   Caller-reported active-model fields are observations supplied by the caller,
   not provider attestations. Unknown or unavailable execution stays visible.
-- This package's quality policy recommends `xhigh` for complex synthesis,
+- This package's quality policy recommends `high` for complex synthesis,
   methodological judgement and review, and `medium` for routine transformations,
   metadata work and scoping. These are starting points, not measured ARS optima.
   Preserve the user's budget and effort choice. Raise effort for unresolved
   reasoning difficulty; give source retrieval or rendering failures better tools.
-- Codex advertises `low`, `medium`, `high`, `xhigh`, `max`, and `ultra` for Astra.
-  `max` and `ultra` are optional; `ultra` includes automatic delegation and is
-  unsuitable for a transport that forbids child agents. The Responses API lists
-  only `low` through `max`; never pass Codex-only `ultra` or `none`/`minimal` there.
+- Use `medium` for routine transformations and `high` for complex synthesis or review
+  on Solar. Raise effort only when the active runtime supports it and the task needs it.
+  Do not pass Codex-only effort values to a provider API without checking that API.
 - Upstream `sonnet`/`opus` hints classify roles but do not select a GPT model.
-  Do not silently substitute an older model, or claim that several Astra workers
-  are cross-family verification. Astra remains provisional for ARS verifier
+  Do not silently substitute an older model, or claim that several Solar workers
+  are cross-family verification. Solar remains unvalidated for ARS verifier
   promotion until the transport-specific bakeoff is actually run.
 
 ## Execution and delegation
@@ -106,8 +105,9 @@ scientific uncertainty, experiment reproducibility or human authority boundaries
 
 ## Configuration sources
 
-Verified 2026-09-06: [Astra API model](https://developers.openai.com/api/docs/models/gpt-6-astra),
+Historical upstream reference (2026-09-06): [Astra API model](https://developers.openai.com/api/docs/models/gpt-6-astra),
 [Astra migration guidance](https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra),
 and [Fable 5.1 API model](https://platform.claude.com/docs/en/models/fable-5-1/overview).
-Codex-only values were checked against the local Codex 0.153.4 model catalog;
-availability for a different account/runtime must be observed there.
+The local Codex 0.159.2 CLI recognizes the model-selection option; actual Solar availability
+and the served model must be verified in each active runtime. This local adaptation has
+not run a model-quality benchmark.

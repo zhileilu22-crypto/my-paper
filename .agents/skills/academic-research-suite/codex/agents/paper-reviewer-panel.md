@@ -7,7 +7,7 @@ source_workflow: "ars/academic-paper-reviewer/WORKFLOW.md"
 
 # ARS Paper Reviewer Panel for Codex
 
-Apply [the shared model/runtime policy](../model-runtime-policy.md): Astra is the
+Apply [the shared model/runtime policy](../model-runtime-policy.md): Solar (`gpt-6-sol`) is the
 Codex target, explicit model choices prevail, and completion requires observable
 artifacts. Give each delegated task bounded inputs, outputs and authority.
 

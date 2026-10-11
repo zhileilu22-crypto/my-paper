@@ -25,7 +25,7 @@
   },
   "runtime_options": {
     "model_policy": {
-      "preferred_model": "gpt-6-astra",
+      "preferred_model": "gpt-6-sol",
       "project_default_reference": ".codex/config.toml",
       "model_override_environment": "ARS_CODEX_MODEL",
       "effort_override_environment": "ARS_CODEX_REASONING_EFFORT",
@@ -45,7 +45,7 @@
       "codex_catalog_default_reasoning_effort": "medium",
       "reasoning_defaults": {
         "routine": "medium",
-        "judgment_or_complex_research": "xhigh"
+        "judgment_or_complex_research": "high"
       },
       "routine_agents": [
         "field_analyst_agent",
@@ -79,15 +79,15 @@
         ]
       },
       "capability_evidence": {
-        "source": "Codex model catalog and generated app-server schema",
-        "catalog_fetched_at": "2026-09-05T18:17:53.817476Z",
-        "cli_version": "0.153.4",
-        "model_catalog_slug": "gpt-6-astra",
-        "api_catalog_listing": true,
+        "source": "Local Solar project preference; runtime availability unverified",
+        "catalog_fetched_at": "not_verified_for_solar",
+        "cli_version": "0.159.2",
+        "model_catalog_slug": "gpt-6-sol",
+        "api_catalog_listing": null,
         "api_live_validation": "not_run",
         "system_card_behavior_reference": "codex/model-runtime-policy.md"
       },
-      "selection_contract": "The planner emits argv and role targets without executing them or changing the current conversation. Explicit model selection takes precedence; an unknown model receives no guessed effort or inherited Astra capability claims.",
+      "selection_contract": "The planner emits argv and role targets without executing them or changing the current conversation. Explicit model selection takes precedence; an unknown model receives no guessed effort or inherited Solar capability claims.",
       "delegation": "Native adaptive delegation is available without ARS_CODEX flags when the host exposes tools. Dispatch only concrete independent work; preserve reviewer withholding and evidence boundaries. Fixed topology experiments and hooks remain opt-in."
     },
     "cross_model_transport": {
@@ -488,7 +488,7 @@
       "The synthesizer must build a finding matrix and preserve minority, dissenting, devil's advocate, and methodology findings unless explicitly resolved by severity and evidence."
     ],
     "minority_preservation": "Synthesis may prioritize by severity, but must not erase a reviewer-specific concern by majority vote alone.",
-    "model_mapping": "Use the gpt-6-astra model policy for Codex launch and dispatch recommendations. Explicit user/runtime selections take precedence. Claude frontmatter is upstream metadata. A plan is never evidence that the current session or a worker actually changed models.",
+    "model_mapping": "Use the gpt-6-sol model policy for Codex launch and dispatch recommendations. Explicit user/runtime selections take precedence. Claude frontmatter is upstream metadata. A plan is never evidence that the current session or a worker actually changed models.",
     "model_tiering": "ARS_MODEL_TIERING is surfaced as advisory metadata. Apply the upstream judgment/execution classification only when the runtime provides an explicit per-dispatch model override; otherwise announce a no-op and keep the active model.",
     "cross_model_transport_selector": "ARS_CROSS_MODEL_TRANSPORT is a closed selector: an absent variable or literal api preserves the API route; codex selects only the contained citation-integrity transport. The planner normalizes absence to the display label unset; literal unset and every other value are visible fail-closed configuration errors.",
     "cross_model_handoff": "Only the unset/api transport may carry an explicitly enabled and consented [CROSS-MODEL-HANDOFF v1] reviewer or judgment request. Validate with ars/scripts/cross_model_handoff.py, send only the payload, apply mechanical agreement/divergence routing, and return judgment work to the original owner.",
@@ -1060,7 +1060,7 @@
     "Native adaptive delegation depends on the host runtime's available tools. The deterministic planner's fixed agent-team topology and all hooks remain opt-in; an inline-solo planner fallback does not forbid useful native delegation.",
     "Topology benchmark arms require a separate double opt-in. Frozen historical cohorts and measured results do not become current model defaults or automatic topology recommendations.",
     "Claude SessionStart and SubagentStop hooks are not installed automatically. The v3.18 upstream update reminder is therefore inactive; the Codex hook pack is local, safe-by-default, and must be explicitly enabled.",
-    "Claude model hints remain metadata. The gpt-6-astra launch plan and per-role model selections require host support and never mutate the current session; actual execution provenance must be recorded separately.",
+    "Claude model hints remain metadata. The gpt-6-sol launch plan and per-role model selections require host support and never mutate the current session; actual execution provenance must be recorded separately.",
     "ARS model tiering is classification-compatible but remains advisory unless the Codex runtime exposes explicit per-dispatch model selection.",
     "External cross-model reviewers and re-review judges require explicit API configuration plus content consent and are not silently simulated. The Codex subscription transport is citation-only and cannot substitute for them.",
     "The PDF read-integrity preflight depends on pypdf. When it is unavailable, Codex preserves the upstream UNAVAILABLE advisory instead of asserting PASS. The optional content classifier is not auto-installed and cannot alter the structural verdict.",

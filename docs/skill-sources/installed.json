@@ -199,5 +199,16 @@
       "license": "docs/skill-sources/academic-research-skills-codex/LICENSE"
     }
   ],
-  "validation": "All skill frontmatter parsed; unique directory-matching names; all copied files byte-identical to pinned upstream checkouts."
+  "validation": "Initial 2026-10-11 import: all skill frontmatter parsed, unique directory-matching names, and copied files matched pinned upstream. Subsequent project adaptation and historical evaluation-output pruning are documented below.",
+  "local_adaptation": {
+    "model": "gpt-6-sol",
+    "default_reasoning_effort": "high",
+    "scientific_skill_entries_retained": 177,
+    "academic_skill_entries_retained": 1,
+    "ars_pruned_paths": [
+      "ars/evals/heldout/reviewer_seeded_defects/runs/raw",
+      "ars/evals/heldout/reviewer_seeded_defects/runs/superseded"
+    ],
+    "scope": "Project configuration, ARS Codex model routing and runtime policy; no research workflows removed. The adapted ARS tree is no longer byte-identical to upstream."
+  }
 }

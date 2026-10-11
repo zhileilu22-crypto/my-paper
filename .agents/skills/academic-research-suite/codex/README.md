@@ -15,7 +15,7 @@ Use $academic-research-suite: ars-plan ...
 
 The root router reads the relevant `ars/*/WORKFLOW.md` and agent prompt files,
 then works inline or delegates useful independent work through native collaboration.
-Read [model/runtime policy](model-runtime-policy.md) for Astra selection and
+Read [model/runtime policy](model-runtime-policy.md) for Solar selection and
 [the source audit](audits/2026-09-06-model-alignment.md) for the evidence.
 
 The fixed full-runtime topology and hooks are opt-in:
@@ -84,8 +84,8 @@ Instead it provides an explicit Codex orchestration contract:
 - synthesis preserves minority and dissenting findings unless resolved by
   evidence and severity;
 - pipeline orchestration stops at requested checkpoints;
-- new project sessions target `gpt-6-astra` with `xhigh`; the planner recommends
-  `medium` for routine work and `xhigh` for complex judgement, preserves explicit
+- new project sessions target `gpt-6-sol` with `high`; the planner recommends
+  `medium` for routine work and `high` for complex judgement, preserves explicit
   choices, and distinguishes requested settings from observed execution;
   upstream `sonnet` hints do not select a Codex model;
 - ARS v3.23.0 retains model tiering as advisory metadata; it is applied only
